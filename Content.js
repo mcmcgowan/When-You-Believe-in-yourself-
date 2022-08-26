@@ -22,10 +22,8 @@ let motivation = [
   "Even though I had sold 70 million albums, there I was feeling like \"I\'m no good at this. -Jennifer Lopez"
 ]
 
-
 //create a variable to store the body tag 
 const page = document.getElementsByTagName('body')[0];
-page.style.zIndex = '1'
 //function to append a full screen div for quotes and then remove after a set time
 
 //create element for div (with id)
@@ -35,7 +33,7 @@ quoteDiv.style.display = 'block';
 quoteDiv.style.position = 'fixed';
 quoteDiv.style.height = '100%';
 quoteDiv.style.width = '100%';
-quoteDiv.style.zIndex = '5';
+quoteDiv.style.zIndex = '2000000000000';
 
 const textDiv = document.createElement('div');
 textDiv.setAttribute('class', 'textDiv');
@@ -46,6 +44,9 @@ textDiv.style.fontSize = '45px';
 textDiv.style.fontFamily = 'Cursive'
 textDiv.style.textAlign = 'center'
 textDiv.style.top = '40%';
+textDiv.style.padding = "1em"
+//textDiv.style.height = "100px"
+textDiv.style.lineHeight = '1.6';
 let randomizer = motivation[Math.floor(Math.random() * motivation.length)]
 textDiv.innerHTML = `${randomizer}`
 
@@ -62,6 +63,7 @@ quoteDiv.style.color = `rgba(139, 150, 136, ${transparancy})`;
 quoteDiv.appendChild(textDiv);
 page.prepend(quoteDiv);
 
+//delay()
 fadeIn()
 
 //helper function to recursively change transparency of text and background
@@ -75,7 +77,7 @@ function fadeIn(){
     transparancy = `${Number(transparancy) + .02}`
     quoteDiv.style.color = `rgba(139, 150, 136, ${transparancy})`;
     quoteDiv.style.backgroundColor = `rgba(232, 211, 213, ${transparancy})`;
-    setTimeout(fadeIn, 50);
+    setTimeout(fadeIn, 10);
 }
 
 function fadeOut() {
@@ -86,9 +88,9 @@ function fadeOut() {
   transparancy = `${Number(transparancy) - .02}`
   quoteDiv.style.backgroundColor = `rgba(232, 211, 213, ${transparancy})`;
   quoteDiv.style.color = `rgba(139, 150, 136, ${transparancy})`
-  setTimeout(fadeOut, 50);
+  setTimeout(fadeOut, 75);
 }
 
 function delay(){
-    return setTimeout(fadeOut, 3000)
+    return setTimeout(fadeOut, 4000)
 }
